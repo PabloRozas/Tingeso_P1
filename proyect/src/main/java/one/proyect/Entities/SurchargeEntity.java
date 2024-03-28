@@ -1,9 +1,15 @@
 package one.proyect.Entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,4 +26,14 @@ public class SurchargeEntity {
     private Long id;
     private int percentage;
 
+    @ManyToOne
+    @JoinColumn(name = "id_vehicle_type")
+    private VehicleTypeEntity vehicleType;
+
+    @ManyToOne
+    @JoinColumn(name = "id_surcharge_type")
+    private SurchageTypeEntity surchargeType;
+
+    @ManyToMany(mappedBy = "surcharges")
+    private Set<VoucherEntity> vouchers = new HashSet<>();
 }

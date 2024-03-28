@@ -32,4 +32,8 @@ public class DiscountEntity {
 
     @ManyToMany(mappedBy = "discounts")
     private Set<VoucherEntity> vouchers = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "id_engine_type")
+    private EngineTypeEntity engineType;
 }
