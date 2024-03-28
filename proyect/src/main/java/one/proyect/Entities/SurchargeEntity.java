@@ -32,7 +32,7 @@ public class SurchargeEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_surcharge_type")
-    private SurchageTypeEntity surchargeType;
+    private SurchargeTypeEntity surchargeType;
 
     @ManyToMany(mappedBy = "surcharges")
     private Set<VoucherEntity> vouchers = new HashSet<>();

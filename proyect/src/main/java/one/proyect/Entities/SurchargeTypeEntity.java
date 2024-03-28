@@ -18,7 +18,7 @@ import jakarta.persistence.GenerationType;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SurchageTypeEntity {
+public class SurchargeTypeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
