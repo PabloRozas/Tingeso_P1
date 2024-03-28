@@ -1,0 +1,71 @@
+body
+{
+    background-color: #212529;
+}
+
+.menu
+{
+    /* navbar que se posiciona a la izquierda */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100%;
+    background: #2B3CDB;
+    display: flex;
+    transition: 0.5s;
+    flex-direction: column;
+    z-index: 1000;
+    color: white;
+}
+
+.containerNav
+{
+    display: flex;
+    flex-direction: column;
+}
+
+ul
+{
+    width: 100%;
+    padding: 0;
+    /* padding-top: 20px; */
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+a
+{
+    transition: 0.3s;
+    font-size: 19px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 3px;
+}
+
+.containerMenus
+{
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+}
+
+.containerMenus h2
+{
+    font-size: 30px;
+    margin: 0;
+    padding: 20px;
+    cursor: pointer;
+}
+
+a:hover
+{
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}

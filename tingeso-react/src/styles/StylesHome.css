@@ -1,0 +1,25 @@
+.color 
+{
+    border-color: white;
+    color: black;
+    padding-bottom: 0.1px;
+    border-bottom: 2px solid white;
+    margin-bottom: 8px;
+    transition: 0.5s;
+    background-color: white;
+    border-right: 2px solid white;
+    cursor: pointer;
+
+}
+
+
+.color:hover
+{
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+    border-color: white;
+    border-bottom: 2px solid black;
+    padding-bottom: 0.1px;
+    margin-bottom: 8px;
+}
