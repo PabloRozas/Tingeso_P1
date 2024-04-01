@@ -32,7 +32,7 @@ services:
     links:
       - db
     volumes:
-      .:/usr/src/app
+      - .:/usr/src/app
 networks:
   backend:
   frontend:
