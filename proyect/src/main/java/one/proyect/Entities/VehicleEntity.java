@@ -27,7 +27,7 @@ public class VehicleEntity {
     private String patent;
     private String model;
     private String year_production;
-    private int number_seats;
+    private Integer number_seats;
 
     @ManyToOne
     @JoinColumn(name = "id_engine_type")
