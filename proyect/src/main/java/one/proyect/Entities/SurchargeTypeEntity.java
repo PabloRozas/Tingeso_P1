@@ -24,7 +24,7 @@ public class SurchargeTypeEntity {
     private Long id;
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "surchargeType")
     private Set<SurchargeEntity> surcharges = new HashSet<>();
 
 }

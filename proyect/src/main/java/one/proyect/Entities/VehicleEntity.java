@@ -6,10 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "vehicle")
@@ -37,7 +41,6 @@ public class VehicleEntity {
     @JoinColumn(name = "id_vehicle_type")
     private VehicleTypeEntity vehicleType;
 
-    @ManyToOne
-    @JoinColumn(name = "id_reparation")
-    private ReparationEntity reparation;
+    @OneToMany(mappedBy = "vehicle")
+    private Set<ReparationEntity> reparations = new HashSet<>();
 }
