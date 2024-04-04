@@ -21,4 +21,8 @@ public class VehicleService {
         return ResponseEntity.ok().body("Vehículo creado correctamente");
     }
 
+    public VehicleEntity getVehicleById(Long id) {
+        return vehicleRepository.findById(id).orElse(null);
+    }
+
 }

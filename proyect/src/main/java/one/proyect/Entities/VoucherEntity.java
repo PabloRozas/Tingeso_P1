@@ -25,7 +25,7 @@ public class VoucherEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer mount;
+    private Double mount;
 
     @ManyToMany
     @JoinTable(name = "voucher_discount", joinColumns = @JoinColumn(name = "voucher_id"), inverseJoinColumns = @JoinColumn(name = "discount_id"))

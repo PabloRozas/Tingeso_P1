@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import one.proyect.Repositories.EngineTypeRepository;
 import one.proyect.Entities.EngineTypeEntity;
 
+import java.util.List;
+
 @Service
 public class EngineTypeService {
     @Autowired
@@ -12,5 +14,9 @@ public class EngineTypeService {
 
     public EngineTypeEntity getEngineTypeById(Long id) {
         return engineTypeRepository.findById(id).orElse(null);
+    }
+
+    public List<EngineTypeEntity> getAllEngineType() {
+        return engineTypeRepository.findAll();
     }
 }
