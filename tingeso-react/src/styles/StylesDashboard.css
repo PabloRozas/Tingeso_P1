@@ -1,6 +1,6 @@
 body
 {
-    background-color: #212529;
+    background-color: rgb(245, 245, 245)
 }
 
 .menu
@@ -9,14 +9,15 @@ body
     position: fixed;
     top: 0;
     left: 0;
-    width: 230px;
+    width: 250px;
     height: 100%;
-    background: #2B3CDB;
+    background: black;
     display: flex;
     transition: 0.5s;
     flex-direction: column;
     z-index: 1000;
     color: white;
+
 }
 
 .containerNav
@@ -36,22 +37,12 @@ ul
     grid-template-columns: 1fr;
 }
 
-a
+li
 {
+    padding-left: 35px;
     transition: 0.3s;
-    font-size: 19px;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    /* justify-content: center; */
-    align-items: center;
-    display: flex;
-    /* padding: 3px; */
-    margin-bottom: 3px;
-    margin-left: 20px;
-    padding-top: 5px;
-    /* padding-left: 20px; */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .containerMenus
@@ -59,24 +50,61 @@ a
     display: flex;
     flex-direction: column;
     /* padding: 20px; */
+    justify-content: center;
 }
 
 .containerMenus h2
 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
     font-size: 30px;
     margin: 0;
     padding: 20px;
     cursor: pointer;
 }
 
-a:hover
+li:hover
 {
     background: rgba(255, 255, 255, 0.1);
     color: white;
 }
 
-a:active
+li:active
 {
     background: rgba(255, 255, 255, 0.2);
     color: white;
+}
+
+img
+{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin-right: 10px;
+    /* filtro negativo */
+    filter: invert(1);
+    margin-bottom: 4px;
+}
+
+main
+{
+    width: 100% - 270px;
+    height: 100%;
+    margin-left: 290px;
+    margin-top: 3vh;
+}
+
+main h1
+{
+    font-size: 30px;
+    margin: 0;
+}   
+
+main p
+{
+    font-size: 18px;
+    margin: 0;
+    margin-top: 6px;
+    font-weight: 300;
 }
