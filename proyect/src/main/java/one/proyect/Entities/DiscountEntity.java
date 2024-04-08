@@ -25,6 +25,7 @@ public class DiscountEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int percentage;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "discount_type_id")

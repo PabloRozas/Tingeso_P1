@@ -39,7 +39,7 @@ public class ReparationController {
         String entry_time = credentials.get("entry_time");
         Long id_repair_type = Long.parseLong(credentials.get("repair_type"));
         String departure_date = credentials.get("departure_date");
-        String departure_time = credentials.get("departure_time");
+        String departure_time = credentials.get("daparture_time");
         Long id_vehicle = Long.parseLong(credentials.get("vehicle"));
         ReparationEntity reparation = new ReparationEntity();
         reparation.setDate_admission(date_admision);
@@ -48,6 +48,8 @@ public class ReparationController {
         reparation.setDeparture_date(departure_date);
         reparation.setDeparture_time(departure_time);
         reparation.setVehicle(vehicleService.getVehicleById(id_vehicle));
+        reparation.setRetirement_date("");
+        reparation.setRetirement_time("");
         reparationService.createReparation(reparation);
         return reparation;
     }
