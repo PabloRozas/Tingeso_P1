@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend-react
+    image: pablomacuadarozas/tingeso-react:latest
+    ports:
+      - 8070:80
+    networks:
+      - frontend
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  backend:
+    container_name: backend-node
+    image: pablomacuadarozas/proyect:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/bdtingeso
+      - SPRING_DATASOURCE_USERNAME=mysqluser
+      - SPRING_DATASOURCE_PASSWORD=adminpassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    deploy:
+      restart_policy:
+        condition: on-failure
+    networks:
+      - backend
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: adminpassword
+      MYSQL_DATABASE: bdtingeso
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: adminpassword
+    networks:
+      - backend
+networks:
+  frontend:
+  backend:
+volumes:
+  db_data:
