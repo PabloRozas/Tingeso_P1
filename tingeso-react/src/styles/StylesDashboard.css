@@ -20,6 +20,12 @@ body
 
 }
 
+a
+{
+    cursor: pointer;
+}
+
+
 .containerNav
 {
     display: flex;
@@ -43,7 +49,10 @@ li
     transition: 0.3s;
     padding-bottom: 10px;
     padding-top: 10px;
+    cursor: pointer;
+    color: white;
 }
+
 
 .containerMenus
 {
@@ -64,6 +73,14 @@ li
     cursor: pointer;
 }
 
+.backblur
+{
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+    border-radius: 5px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
 li:hover
 {
     background: rgba(255, 255, 255, 0.1);
@@ -73,7 +90,6 @@ li:hover
 li:active
 {
     background: rgba(255, 255, 255, 0.2);
-    color: white;
 }
 
 img
@@ -90,7 +106,7 @@ img
 main
 {
     width: 100% - 270px;
-    height: 100%;
+    height: 100vh - 3vh;
     margin-left: 290px;
     margin-top: 3vh;
 }
