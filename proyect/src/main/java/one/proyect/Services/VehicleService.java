@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import one.proyect.Entities.VehicleEntity;
 import one.proyect.Repositories.VehicleRepository;
 
+import java.util.List;
+
 @Service
 public class VehicleService {
 
@@ -23,6 +25,10 @@ public class VehicleService {
 
     public VehicleEntity getVehicleById(Long id) {
         return vehicleRepository.findById(id).orElse(null);
+    }
+
+    public List<VehicleEntity> getAllVehicles() {
+        return vehicleRepository.findAll();
     }
 
 }

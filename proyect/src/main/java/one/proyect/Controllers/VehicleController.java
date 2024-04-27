@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import one.proyect.Entities.VehicleEntity;
 import one.proyect.Services.VehicleService;
@@ -14,9 +15,11 @@ import one.proyect.Services.EngineTypeService;
 import one.proyect.Services.BrandsService;
 import one.proyect.Services.VehicleTypeService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/vehicle")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class VehicleController {
 
     @Autowired
@@ -55,6 +58,11 @@ public class VehicleController {
         vehicle.setVehicleType(vehicleTypeService.getVehicleTypeById(id_vehicle_type));
         vehicleService.createVehicle(vehicle);
         return vehicle;
+    }
+
+    @GetMapping("/all")
+    public List<VehicleEntity> getAllVehicles() {
+        return vehicleService.getAllVehicles();
     }
 
 }
