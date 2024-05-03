@@ -1,6 +1,7 @@
 services:
   db:
     image: mysql:latest
+    container_name: dbmysql
     deploy:
       restart_policy:
         condition: on-failure
@@ -26,7 +27,7 @@ services:
     environment:
       - DB_USER=mysqluser
       - DB_PASS=adminpassword
-      - DB_HOST=192.168.100.108
+      - DB_HOST=dbmysql
     depends_on:
       - db
 
@@ -40,7 +41,7 @@ services:
     environment:
       - DB_USER=mysqluser
       - DB_PASS=adminpassword
-      - DB_HOST=192.168.100.108
+      - DB_HOST=dbmysql
     depends_on:
       - db
 
@@ -54,7 +55,7 @@ services:
     environment:
       - DB_USER=mysqluser
       - DB_PASS=adminpassword
-      - DB_HOST=192.168.100.108
+      - DB_HOST=dbmysql
     depends_on:
       - db
 
