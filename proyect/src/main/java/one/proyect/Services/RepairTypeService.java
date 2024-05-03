@@ -19,4 +19,12 @@ public class RepairTypeService {
     public RepairTypeEntity getRepairTypeById(Long id) {
         return repairTypeRepository.findById(id).orElse(null);
     }
+
+    public List<?> getReport2(Long id_vehicle_type) {
+        return repairTypeRepository.getReport2(id_vehicle_type);
+    }
+
+    public List<?> getReport4(Long id_engine_type) {
+        return repairTypeRepository.getReport4(id_engine_type);
+    }
 }

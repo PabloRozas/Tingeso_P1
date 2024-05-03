@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import one.proyect.Entities.BrandsEntity;
+import one.proyect.Entities.Report3;
 import one.proyect.Services.BrandsService;
 
 import java.util.List;
@@ -27,5 +28,10 @@ public class BrandsController {
     @GetMapping("/all")
     public List<BrandsEntity> getAllBrands() {
         return brandsService.getAllBrands();
+    }
+
+    @GetMapping("/report3")
+    public List<Report3> getReport3() {
+        return brandsService.getReport3();
     }
 }

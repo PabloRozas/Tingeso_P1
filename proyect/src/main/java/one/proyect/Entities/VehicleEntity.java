@@ -28,6 +28,7 @@ public class VehicleEntity {
     private String model;
     private String year_production;
     private Integer number_seats;
+    private Integer km;
 
     @ManyToOne
     @JoinColumn(name = "id_engine_type")

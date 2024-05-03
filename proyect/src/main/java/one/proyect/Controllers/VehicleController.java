@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import one.proyect.Entities.VehicleEntity;
 import one.proyect.Services.VehicleService;
@@ -48,6 +49,7 @@ public class VehicleController {
         Long id_engine_type = Long.parseLong(credentials.get("id_engine_type"));
         Long id_brand = Long.parseLong(credentials.get("id_brand"));
         Long id_vehicle_type = Long.parseLong(credentials.get("id_vehicle_type"));
+        Integer km = Integer.parseInt(credentials.get("km"));
         VehicleEntity vehicle = new VehicleEntity();
         vehicle.setPatent(patent);
         vehicle.setModel(model);
@@ -56,6 +58,7 @@ public class VehicleController {
         vehicle.setEngineType(engineTypeService.getEngineTypeById(id_engine_type));
         vehicle.setBrand(brandsService.getBrandById(id_brand));
         vehicle.setVehicleType(vehicleTypeService.getVehicleTypeById(id_vehicle_type));
+        vehicle.setKm(km);
         vehicleService.createVehicle(vehicle);
         return vehicle;
     }
@@ -63,6 +66,16 @@ public class VehicleController {
     @GetMapping("/all")
     public List<VehicleEntity> getAllVehicles() {
         return vehicleService.getAllVehicles();
+    }
+
+    @GetMapping("/get/{id}")
+    public VehicleEntity getVehicleById(@PathVariable Long id) {
+        return vehicleService.getVehicleById(id);
+    }
+
+    @GetMapping("/getByPatent/{patent}")
+    public VehicleEntity getVehicleByPatent(@PathVariable String patent) {
+        return vehicleService.getVehicleByPatent(patent);
     }
 
 }

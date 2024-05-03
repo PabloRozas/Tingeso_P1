@@ -1,3 +1,57 @@
+
+INSERT INTO engine_type (id, name)
+values (1, 'Gasolina')
+
+INSERT INTO engine_type (id, name)
+values (2, 'Diésel')
+
+INSERT INTO engine_type (id, name)
+values (3, 'Híbrido')
+
+INSERT INTO engine_type (id, name)
+values (4, 'Electrico')
+
+
+
+INSERT INTO brands (id, name)
+values (1, 'Toyota')
+
+INSERT INTO brands (id, name)
+values (2, 'Kia')
+
+INSERT INTO brands (id, name)
+values (3, 'Honda')
+
+INSERT INTO brands (id, name)
+values (4, 'Ford')
+
+INSERT INTO brands (id, name)
+values (5, 'Chevrolet')
+
+INSERT INTO brands (id, name)
+values (6, 'Hyundai')
+
+
+
+
+INSERT INTO vehicle_type (id, name)
+values (1, 'Sedan')
+
+INSERT INTO vehicle_type (id, name)
+values (2, 'Hatchback')
+
+INSERT INTO vehicle_type (id, name)
+values (3, 'SUV')
+
+INSERT INTO vehicle_type (id, name)
+values (4, 'Pickup')
+
+INSERT INTO vehicle_type (id, name)
+values (5, 'Fugoneta')
+
+
+
+
 -- Tipos de reparaciones
 INSERT INTO repair_type  (id, name, description)
 values (1, 'Reparaciones del Sistema de Frenos', 'Incluye el reemplazo de pastillas de freno, discos, tambores, líneas de freno y reparación o reemplazo del cilindro maestro de frenos.')
@@ -221,7 +275,7 @@ INSERT INTO discount (id, percentage, id_discount_type, id_engine_type, descript
 VALUES (15, 18, 1, 4, '6-9')
 
 INSERT INTO discount (id, percentage, id_discount_type, id_engine_type, description)
-VALUES (16, 23, 1, 4, '10-+')
+VALUES (16, 23, 1, 4, '10+')
 
 INSERT INTO discount (id, percentage, id_discount_type, id_engine_type, description)
 VALUES (17, 10, 2, 1, 'lunes-9:00-12:00')
@@ -247,15 +301,151 @@ VALUES (23, 10, 2, 4, 'lunes-9:00-12:00')
 INSERT INTO discount (id, percentage, id_discount_type, id_engine_type, description)
 VALUES (24, 10, 2, 4, 'jueves-9:00-12:00')
 
--- Se cambia el valor de la columna description en la tabla discount del registro con id 12 por '10-+'
+
+INSERT INTO surcharge_type (id, name)
+VALUES (1, 'Recargo por kilometraje')
+
+INSERT INTO surcharge_type (id, name)
+VALUES (2, 'Recargo por antigüedad del vehículo')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (1, 0, 1, 1, '0-5000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (2, 3, 1, 1, '5001-12000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (3, 7, 1, 1, '12001-25000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (4, 12, 1, 1, '25001-40000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (5, 20, 1, 1, '40001+')
 
 
--- Se cambia el valor de la columna description en la tabla discount del registro con id 8 por '10+'
-UPDATE discount
-SET description = '10+'
-WHERE id = 8
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (6, 0, 1, 2, '0-5000')
 
--- Se cambia el valor de la columna description en la tabla discount del registro con id 4 por '10+'
-UPDATE discount
-SET description = '10+'
-WHERE id = 4
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (7, 3, 1, 2, '5001-12000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (8, 7, 1, 2, '12001-25000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (9, 12, 1, 2, '25001-40000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (10, 20, 1, 2, '40001+')
+
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (11, 0, 1, 3, '0-5000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (12, 5, 1, 3, '5001-12000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (13, 9, 1, 3, '12001-25000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (14, 12, 1, 3, '25001-40000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (15, 20, 1, 3, '40001+')
+
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (16, 0, 1, 4, '0-5000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (17, 5, 1, 4, '5001-12000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (18, 9, 1, 4, '12001-25000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (19, 12, 1, 4, '25001-40000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (20, 20, 1, 4, '40001+')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (21, 0, 1, 5, '0-5000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (22, 5, 1, 5, '5001-12000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (23, 9, 1, 5, '12001-25000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (24, 12, 1, 5, '25001-40000')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (25, 20, 1, 5, '40001+')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (26, 0, 2, 1, '0-5')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (27, 5, 2, 1, '6-10')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (28, 9, 2, 1, '11-15')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (29, 15, 2, 1, '16+')
+
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (30, 0, 2, 2, '0-5')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (31, 5, 2, 2, '6-10')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (32, 9, 2, 2, '11-15')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (33, 15, 2, 2, '16+')
+
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (34, 0, 2, 3, '0-5')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (35, 7, 2, 3, '6-10')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (36, 11, 2, 3, '11-15')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (37, 20, 2, 3, '16+')
+
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (38, 0, 2, 4, '0-5')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (39, 7, 2, 4, '6-10')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (40, 11, 2, 4, '11-15')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (41, 20, 2, 4, '16+')
+
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (42, 0, 2, 5, '0-5')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (43, 7, 2, 5, '6-10')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (44, 11, 2, 5, '11-15')
+
+INSERT INTO surcharge (id, percentage, id_surcharge_type, id_vehicle_type, description)
+VALUES (45, 20, 2, 5, '16+')

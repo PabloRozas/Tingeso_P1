@@ -31,4 +31,8 @@ public class VehicleService {
         return vehicleRepository.findAll();
     }
 
+    public VehicleEntity getVehicleByPatent(String patent) {
+        return vehicleRepository.findByPatent(patent);
+    }
+
 }

@@ -25,6 +25,7 @@ public class SurchargeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int percentage;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "id_vehicle_type")

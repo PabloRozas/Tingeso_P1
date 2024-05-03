@@ -5,11 +5,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "reparation")
@@ -27,9 +32,9 @@ public class ReparationEntity {
     private String retirement_time;
     private String retirement_date;
 
-    @ManyToOne
-    @JoinColumn(name = "id_repair_type")
-    private RepairTypeEntity repairType;
+    @ManyToMany
+    @JoinTable(name = "reparation_repair_type", joinColumns = @JoinColumn(name = "reparation_id"), inverseJoinColumns = @JoinColumn(name = "repair_type_id"))
+    private Set<RepairTypeEntity> repairTypes = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "id_vehicle")

@@ -15,4 +15,12 @@ public class DiscountService {
     public List<DiscountEntity> getDiscounts(Long id_engine_type, Long id_discount_type) {
         return discountRepository.findAllByEngineTypeIdAndDiscountTypeId(id_engine_type, id_discount_type);
     }
+
+    List<DiscountEntity> getDiscountsByTypeDiscount(Long id_discount_type) {
+        return discountRepository.findAllByDiscountTypeId(id_discount_type);
+    }
+
+    public DiscountEntity getDiscountById(Long id) {
+        return discountRepository.findById(id).orElse(null);
+    }
 }
