@@ -1,0 +1,49 @@
+.tableReport {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 155vh;
+    height: 87vh;
+    overflow: auto;
+}
+
+.tableR1 {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+}
+
+.tableR1 th {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    /* border: 1px solid #ddd; */
+}
+
+.tableR1 td {
+    text-align: center;
+    padding: 8px;
+    /* border: 1px solid #ddd; */
+}
+
+.tableR1 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tableR1 tr:nth-child(odd) {
+    background-color: white;
+}
+
+.tableR1 tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+.nota {
+    font-size: 15px;
+}

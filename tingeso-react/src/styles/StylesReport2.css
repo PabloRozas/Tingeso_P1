@@ -1,0 +1,64 @@
+.tableReport2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 155vh;
+    height: 82vh;
+    overflow: auto;
+}
+
+.tableR2 {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.tableR2 th {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+    /* border: 1px solid #ddd; */
+}
+
+.tableR2 td {
+    text-align: center;
+    padding: 8px;
+    /* border: 1px solid #ddd; */
+}
+
+.tableR2 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tableR2 tr:nth-child(odd) {
+    background-color: white;
+}
+
+.tableR2 tr:hover {
+    background-color: #f2f2f2;
+}
+
+.selectVehicle {
+    width: 36%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.selectVehicle label {
+    margin-right: 30px;
+}
+
+.selectVehicle select {
+    width: 60%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
