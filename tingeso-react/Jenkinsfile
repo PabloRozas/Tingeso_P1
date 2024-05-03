@@ -13,8 +13,12 @@ pipeline{
         stage('Build and Push Docker Image'){
             steps{
                 dir('frontend'){
-                    bat 'docker build -t pablomacuadarozas/frontend:latest .'
-                    bat 'docker push pablomacuadarozas/frontend:latest'
+                    script{
+                        withDockerRegistry(credentialsId: 'docker-credentials'){
+                            bat "docker build -t pablomacuadarozas/frontend:latest ."
+                            bat "docker push pablomacuadarozas/frontend:latest"
+                        }
+                    }
                 }
             }
         }
