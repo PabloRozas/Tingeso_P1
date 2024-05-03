@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Build Frontend'){
             steps{
-                checkout(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PabloRozas/Tingeso_P1']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PabloRozas/Tingeso_P1']])
                 dir('frontend'){
                     bat 'npm install'
                     bat 'npm run build'
