@@ -9,13 +9,13 @@ pipeline{
             steps{
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PabloRozas/Tingeso_P1']])
                 dir("proyect"){
-                    bat ".\mvnw -DskipTests package"
+                    bat "mvn -DskipTests package"
                 }
             }
         }       
         stage("Build and Push Docker Image"){
             steps{
-                dir("backend"){
+                dir("proyect"){
                     script{
                          withDockerRegistry(credentialsId: 'docker-credentials'){
                             bat "docker build -t pablomacuadarozas/backend:latest ."
