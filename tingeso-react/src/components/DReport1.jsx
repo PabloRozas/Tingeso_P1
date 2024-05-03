@@ -9,7 +9,7 @@ export function DReporte1() {
     async function fetchData() {
       try {
         const responseReport = await axios.get(
-          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/voucher/report1"
+          "http://localhost:8090/voucher/report1"
         );
         setReports(responseReport.data);
         console.log("Vouchers encontrados:", responseReport.data);

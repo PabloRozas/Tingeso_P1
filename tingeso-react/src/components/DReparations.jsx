@@ -8,9 +8,7 @@ export function DReparations() {
   // metodo para pagar las reparacione
   const handleClick = (id) => {
     try {
-      const response = axios.put(
-        `http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/pay/${id}`
-      );
+      const response = axios.put(`http://localhost:8090/reparation/pay/${id}`);
       console.log("Reparación pagada:", response.data);
     } catch (error) {
       console.error("Error al pagar la reparación:", error);
@@ -21,7 +19,7 @@ export function DReparations() {
     async function fetchData() {
       try {
         const responseReparation = await axios.get(
-          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/all"
+          "http://localhost:8090/reparation/all"
         );
         setReparations(responseReparation.data);
         console.log("Reparaciones encontradas:", responseReparation.data);

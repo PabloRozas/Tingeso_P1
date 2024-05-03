@@ -27,7 +27,7 @@ export function DFormReparation() {
     try {
       // Crear la reparación
       const responseCreate = await axios.post(
-        "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/create",
+        "http://localhost:8090/reparation/create",
         {
           date_admision: document.getElementById("dateAdmision").value,
           entry_time: document.getElementById("entryTime").value,
@@ -42,18 +42,15 @@ export function DFormReparation() {
 
       // Agregar los tipos de reparaciones
       for (let i = 0; i < reparationTypes.length; i++) {
-        await axios.post(
-          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/addRepairType",
-          {
-            reparation: idReparation,
-            repair_type: reparationTypes[i],
-          }
-        );
+        await axios.post("http://localhost:8090/reparation/addRepairType", {
+          reparation: idReparation,
+          repair_type: reparationTypes[i],
+        });
         console.log("Tipo de reparación agregado:", reparationTypes[i]);
       }
 
       const responseMount = await axios.post(
-        "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/calculateVoucher",
+        "http://localhost:8090/reparation/calculateVoucher",
         {
           reparation: idReparation,
         }
@@ -71,12 +68,12 @@ export function DFormReparation() {
     async function fetchData() {
       try {
         const responseVehicle = await axios.get(
-          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/vehicle/all"
+          "http://localhost:8090/vehicle/all"
         );
         setVehicles(responseVehicle.data);
 
         const responseReparationType = await axios.get(
-          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/repairType/all"
+          "http://localhost:8090/repairType/all"
         );
         setTipeReparation(responseReparationType.data);
       } catch (error) {
@@ -121,7 +118,7 @@ export function DFormReparation() {
           <input type="date" id="departureDate" name="departureDate" required />
           <label htmlFor="departureTime">Hora de Salida:</label>
           <input type="time" id="departureTime" name="departureTime" required />
-          <label htmlFor="idVehicle">Vehículo:</label>
+          <label htmlFor="idVehicle">Automovil:</label>
           <select id="idVehicle" name="idVehicle" required>
             {vehicles.map((vehicle) => (
               <option key={vehicle.id} value={vehicle.id} id="idVehicle">

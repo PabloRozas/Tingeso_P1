@@ -21,7 +21,7 @@ services:
     image: pablomacuadarozas/backend:latest
     container_name: backend1
     ports:
-      - 8091:8090
+      - 8091:8080
     networks:
       - backend
     environment:
@@ -35,7 +35,7 @@ services:
     image: pablomacuadarozas/backend:latest
     container_name: backend2
     ports:
-      - 8092:8090
+      - 8092:8080
     networks:
       - backend
     environment:
@@ -49,7 +49,7 @@ services:
     image: pablomacuadarozas/backend:latest
     container_name: backend3
     ports:
-      - 8093:8090
+      - 8093:8080
     networks:
       - backend
     environment:
