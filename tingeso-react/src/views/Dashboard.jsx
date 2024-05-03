@@ -13,6 +13,7 @@ import { DReporte3 } from "../components/DReport3";
 import { DReporte4 } from "../components/DReport4";
 import { DFormVehicle } from "../components/DFormVehicle";
 import { DFormReparation } from "../components/DFormReparation";
+import { DReparations } from "../components/DReparations";
 
 import PropTypes from "prop-types";
 
@@ -45,6 +46,10 @@ function ItemMenu({ opcion }) {
   if (opcion == 7) {
     return <DFormVehicle />;
   }
+  // Si la opción es 8, entonces se muestra el componente DFormVehicle
+  if (opcion == 8) {
+    return <DReparations />;
+  }
 }
 
 ItemMenu.propTypes = {
@@ -74,6 +79,10 @@ function Dashboard() {
             <li onClick={() => handleClick(6)}>
               <img src={LogoMot} alt="motor" />
               <a>Registrar una Rep.</a>
+            </li>
+            <li onClick={() => handleClick(8)}>
+              <img src={LogoMot} alt="motor" />
+              <a>Reparaciones</a>
             </li>
             <li onClick={() => handleClick(2)}>
               <img src={LogoHist} alt="hist" />
