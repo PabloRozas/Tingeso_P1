@@ -1,0 +1,120 @@
+services:
+  db:
+    image: mysql:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - db_data_test:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: adminpassword
+      MYSQL_DATABASE: bdtingeso
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: adminpassword
+    networks:
+      - backend 
+
+  backend1:
+    image: pablomacuadarozas/backend:latest
+    container_name: backend1
+    ports:
+      - 8091:8090
+    networks:
+      - backend
+    environment:
+      - DB_USER=mysqluser
+      - DB_PASS=adminpassword
+      - DB_HOST=192.168.100.108
+    depends_on:
+      - db
+
+  backend2:
+    image: pablomacuadarozas/backend:latest
+    container_name: backend2
+    ports:
+      - 8092:8090
+    networks:
+      - backend
+    environment:
+      - DB_USER=mysqluser
+      - DB_PASS=adminpassword
+      - DB_HOST=192.168.100.108
+    depends_on:
+      - db
+
+  backend3:
+    image: pablomacuadarozas/backend:latest
+    container_name: backend3
+    ports:
+      - 8093:8090
+    networks:
+      - backend
+    environment:
+      - DB_USER=mysqluser
+      - DB_PASS=adminpassword
+      - DB_HOST=192.168.100.108
+    depends_on:
+      - db
+
+  frontend1:
+    image: pablomacuadarozas/frontend:latest
+    container_name: frontend1
+    ports:
+      - 3001:3000 
+    networks:
+      - frontend
+
+  frontend2:
+    image: pablomacuadarozas/frontend:latest
+    container_name: frontend2
+    ports:
+      - 3002:3000
+    networks:
+      - frontend
+
+  frontend3:
+    image: pablomacuadarozas/frontend:latest
+    container_name: frontend3
+    ports:
+      - 3003:3000
+    networks:
+      - frontend
+
+  frontend:
+    image: nginx:latest
+    container_name: frontend
+    ports:
+      - 8070:8070
+    restart: always
+    volumes:
+      - ./nginx-frontend.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend1
+      - frontend2
+      - frontend3
+    networks:
+      - frontend
+
+  backend:
+    image: nginx:latest
+    container_name: backend
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx-backend.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - backend1
+      - backend2
+      - backend3
+    networks:
+      - backend
+
+volumes:
+  db_data_test:
+
+networks:
+  frontend:
+  backend:
+  
