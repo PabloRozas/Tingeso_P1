@@ -4,7 +4,7 @@ pipeline{
         stage("Build Frontend"){
             steps{
                 checkout scmGit(branches: [[name: "*/master"]], extensions: [], userRemoteConfigs: [[url: "https://github.com/PabloRozas/Tingeso_P1"]])
-                dir("frontend"){
+                dir("tingeso-react"){
                     bat "npm install"
                     bat "npm run build"
                 }
@@ -12,7 +12,7 @@ pipeline{
         }
         stage("Build and Push Docker Image"){
             steps{
-                dir("frontend"){
+                dir("tingeso-react"){
                     script{
                         withDockerRegistry(credentialsId: "docker-credentials"){
                             bat "docker build -t pablomacuadarozas/frontend:latest ."
