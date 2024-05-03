@@ -9,6 +9,7 @@ pipeline{
             steps{
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/PabloRozas/Tingeso_P1']])
                 dir("proyect"){
+                    bat "mvn clean"
                     bat "mvn -DskipTests package"
                 }
             }

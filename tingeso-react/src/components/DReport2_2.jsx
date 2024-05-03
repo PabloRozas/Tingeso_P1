@@ -10,7 +10,7 @@ export function DReport2_2(idVehicleType) {
       try {
         console.log("idVehicleType:", idVehicleType.idVehicleType);
         const responseReport = await axios.get(
-          "http://localhost:8080/repairType/report2/" +
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/repairType/report2/" +
             idVehicleType.idVehicleType
         );
         setReports(responseReport.data);

@@ -15,7 +15,7 @@ export function DReporte2() {
     async function fetchData() {
       try {
         const responseVehiclesTypes = await axios.get(
-          "http://localhost:8080/vehicleType/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/vehicleType/all"
         );
         setVehiclesTypes(responseVehiclesTypes.data);
         console.log("Vehículos encontrados:", responseVehiclesTypes.data);

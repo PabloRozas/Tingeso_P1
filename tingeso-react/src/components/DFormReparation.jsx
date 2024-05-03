@@ -27,7 +27,7 @@ export function DFormReparation() {
     try {
       // Crear la reparación
       const responseCreate = await axios.post(
-        "http://localhost:8080/reparation/create",
+        "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/create",
         {
           date_admision: document.getElementById("dateAdmision").value,
           entry_time: document.getElementById("entryTime").value,
@@ -42,15 +42,18 @@ export function DFormReparation() {
 
       // Agregar los tipos de reparaciones
       for (let i = 0; i < reparationTypes.length; i++) {
-        await axios.post("http://localhost:8080/reparation/addRepairType", {
-          reparation: idReparation,
-          repair_type: reparationTypes[i],
-        });
+        await axios.post(
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/addRepairType",
+          {
+            reparation: idReparation,
+            repair_type: reparationTypes[i],
+          }
+        );
         console.log("Tipo de reparación agregado:", reparationTypes[i]);
       }
 
       const responseMount = await axios.post(
-        "http://localhost:8080/reparation/calculateVoucher",
+        "http://tingeso-proyect.eastus.cloudapp.azure.com:80/reparation/calculateVoucher",
         {
           reparation: idReparation,
         }
@@ -68,12 +71,12 @@ export function DFormReparation() {
     async function fetchData() {
       try {
         const responseVehicle = await axios.get(
-          "http://localhost:8080/vehicle/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/vehicle/all"
         );
         setVehicles(responseVehicle.data);
 
         const responseReparationType = await axios.get(
-          "http://localhost:8080/repairType/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/repairType/all"
         );
         setTipeReparation(responseReparationType.data);
       } catch (error) {

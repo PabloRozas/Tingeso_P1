@@ -6,6 +6,7 @@ pipeline{
                 checkout scmGit(branches: [[name: "*/master"]], extensions: [], userRemoteConfigs: [[url: "https://github.com/PabloRozas/Tingeso_P1"]])
                 dir("tingeso-react"){
                     bat "npm install"
+                    bat "npm cache clean --force"
                     bat "npm run build"
                 }
             }

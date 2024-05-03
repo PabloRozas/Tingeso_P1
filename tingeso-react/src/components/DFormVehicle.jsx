@@ -14,16 +14,19 @@ export function DFormVehicle() {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Evita que la página se recargue al enviar el formulario
     axios
-      .post("http://localhost:8080/vehicle/create", {
-        patent: document.getElementById("patent").value,
-        model: document.getElementById("model").value,
-        year_production: document.getElementById("year").value,
-        number_seats: document.getElementById("seats").value,
-        id_engine_type: document.getElementById("engineType").value,
-        id_brand: document.getElementById("brand").value,
-        id_vehicle_type: document.getElementById("vehicleType").value,
-        km: document.getElementById("km").value,
-      })
+      .post(
+        "http://tingeso-proyect.eastus.cloudapp.azure.com:80/vehicle/create",
+        {
+          patent: document.getElementById("patent").value,
+          model: document.getElementById("model").value,
+          year_production: document.getElementById("year").value,
+          number_seats: document.getElementById("seats").value,
+          id_engine_type: document.getElementById("engineType").value,
+          id_brand: document.getElementById("brand").value,
+          id_vehicle_type: document.getElementById("vehicleType").value,
+          km: document.getElementById("km").value,
+        }
+      )
       .then((response) => {
         console.log("Vehículo registrado:", response.data);
         setResponseText("Vehículo registrado correctamente ✅");
@@ -39,19 +42,19 @@ export function DFormVehicle() {
     async function fetchData() {
       try {
         const responseVehicleTypes = await axios.get(
-          "http://localhost:8080/vehicleType/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/vehicleType/all"
         );
         console.log("Tipos de vehículos:", responseVehicleTypes.data);
         setVehicleTypes(responseVehicleTypes.data);
 
         const responseEngineType = await axios.get(
-          "http://localhost:8080/engineType/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/engineType/all"
         );
         console.log("Tipos de motor:", responseEngineType.data);
         setEngineTypes(responseEngineType.data);
 
         const responseBrand = await axios.get(
-          "http://localhost:8080/brands/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/brands/all"
         );
         console.log("Marcas de vehículos:", responseBrand.data);
         setBrands(responseBrand.data);

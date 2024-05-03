@@ -8,7 +8,7 @@ export function DReporte3() {
     async function fetchData() {
       try {
         const responseReport = await axios.get(
-          "http://localhost:8080/brands/report3"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/brands/report3"
         );
         setReports(responseReport.data);
         console.log("Reporte encontrado:", responseReport.data);

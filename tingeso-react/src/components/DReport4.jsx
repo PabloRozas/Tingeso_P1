@@ -15,13 +15,14 @@ export function DReporte4() {
     async function fetchData() {
       try {
         const responseEngineTypes = await axios.get(
-          "http://localhost:8080/engineType/all"
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/engineType/all"
         );
         setEngineTypes(responseEngineTypes.data);
         console.log("Motores encontrados:", responseEngineTypes.data);
 
         const responseReport = await axios.get(
-          "http://localhost:8080/repairType/report4/" + idEngineType
+          "http://tingeso-proyect.eastus.cloudapp.azure.com:80/repairType/report4/" +
+            idEngineType
         );
         console.log("Reporte encontrado:", responseReport.data);
         setReports(responseReport.data);
